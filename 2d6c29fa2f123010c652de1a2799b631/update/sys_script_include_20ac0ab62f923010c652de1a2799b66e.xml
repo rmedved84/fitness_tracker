@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_271625_fitness.FitnessUtil</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>FitnessUtil</name>
+        <script><![CDATA[var FitnessUtil = (function(){	
+
+	var APPSCOPE = 'x_271625_fitness';
+	
+	function getWorkouts(query){
+		query = query || 'order=asc&page=1&per_page=10&states=pending';
+		var workouts = _callTrueCoach('v2/clients/668904/workouts?' + query, 'GET');
+		workouts = JSON.parse(workouts);
+		return workouts;
+	}
+	
+	function createWorkoutFromObj(workoutObj){
+		var workoutGR = new GlideRecord(APPSCOPE + '_workout');
+		if(workoutGR.get('id', workoutObj.id)){
+			return workoutGR.getUniqueValue();
+		}
+		workoutGR.initialize();
+		workoutGR.setValue('id', workoutObj.id);
+		workoutGR.setValue('title', workoutObj.title);
+		workoutGR.setValue('state', workoutObj.state);
+		workoutGR.setValue('rest_day', workoutObj.rest_day);
+		var workoutID = workoutGR.insert();
+		return workoutID;
+	}
+	
+	function createWorkoutItemFromObj(workoutItemObj, workoutID){
+		var workoutItemGR = new GlideRecord(APPSCOPE + '_workout_items');
+		if(workoutItemGR.get('id', workoutItemObj.id)){
+			return workoutItemGR.getUniqueValue();
+		}
+		workoutItemGR.setValue('id', workoutItemObj.id);
+		workoutItemGR.setValue('name', workoutItemObj.name);
+		workoutItemGR.setValue('info', workoutItemObj.info);
+		workoutItemGR.setValue('is_circuit', workoutItemObj.is_circuit);
+		workoutItemGR.setValue('position', workoutItemObj.position);
+		workoutItemGR.setValue('linked', workoutItemObj.linked);
+		workoutItemGR.setValue('workout', workoutID);
+		var workoutItemID = workoutItemGR.insert();
+		return workoutItemID;
+	}
+	
+	/**SNDOC
+	@name _callTrueCoach
+	@description Makes a REST call to Saviynt and returns response
+	@param {String} [endpoint] - endpoint to call
+	@param {String} [method] - HTTP method to use
+	@param {Object} [body] - JSON request body to send
+	@returns {String} Access token
+	*/
+	function _callTrueCoach(endpoint, method, body, headers){
+		var baseURL = gs.getProperty('x_271625_fitness.base_url');
+		var accessToken = gs.getProperty('x_271625_fitness.auth_token');
+		var request = new sn_ws.RESTMessageV2();
+		request.setEndpoint(baseURL + endpoint);
+		request.setHttpMethod(method);
+		request.setRequestHeader('Role', 'Client');
+		if(body){
+			request.setRequestBody(body);
+		}
+		request.setRequestHeader('Authorization', accessToken);
+		request.setRequestHeader('Role', 'Client');
+		if(headers){
+			for(var header in headers){
+				request.setRequestHeader(header, headers[header]);
+			}
+		}
+		var response = request.execute();
+		var statusCode = response.getStatusCode();
+		var error = response.getErrorMessage();
+		var responseBody = response.getBody();
+		return response.getBody();
+	}
+	
+	
+	/***** Non API related Methods *****/
+	
+	
+    	
+	/***** Return public methods here *****/
+	return{
+		'_callTrueCoach': _callTrueCoach,
+		'appScope': APPSCOPE,
+		'getWorkouts': getWorkouts,
+		'createWorkoutFromObj': createWorkoutFromObj,
+		'createWorkoutItemFromObj': createWorkoutItemFromObj
+	};
+	
+})();]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>rmedved84@gmail.com</sys_created_by>
+        <sys_created_on>2021-09-03 19:11:49</sys_created_on>
+        <sys_id>20ac0ab62f923010c652de1a2799b66e</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>FitnessUtil</sys_name>
+        <sys_package display_value="Fitness Tracker" source="x_271625_fitness">2d6c29fa2f123010c652de1a2799b631</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Fitness Tracker">2d6c29fa2f123010c652de1a2799b631</sys_scope>
+        <sys_update_name>sys_script_include_20ac0ab62f923010c652de1a2799b66e</sys_update_name>
+        <sys_updated_by>rmedved84@gmail.com</sys_updated_by>
+        <sys_updated_on>2021-09-07 19:16:28</sys_updated_on>
+    </sys_script_include>
+</record_update>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Workout Items" max_length="40" name="x_271625_fitness_workout_items" sizeclass="10" type="collection">
+        <element label="ID" max_length="100" name="id" type="string"/>
+        <element label="Info" max_length="100" name="info" type="string"/>
+        <element label="Is Circuit" max_length="40" name="is_circuit" type="boolean"/>
+        <element label="Linked" max_length="40" name="linked" type="boolean"/>
+        <element label="Movement" max_length="32" name="movement" reference="x_271625_fitness_movement" type="reference"/>
+        <element label="Name" max_length="100" name="name" type="string"/>
+        <element label="Position" max_length="40" name="position" type="integer"/>
+        <element label="Workout" max_length="32" name="workout" reference="x_271625_fitness_workout" type="reference"/>
+        <index name="index">
+            <element name="workout"/>
+        </index>
+        <index name="index2">
+            <element name="movement"/>
+        </index>
+    </element>
+</database>

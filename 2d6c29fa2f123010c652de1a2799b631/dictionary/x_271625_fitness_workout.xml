@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Workout" max_length="40" name="x_271625_fitness_workout" sizeclass="2" type="collection">
+        <element label="Description" max_length="8000" name="description" type="html"/>
+        <element label="ID" max_length="100" name="id" type="string"/>
+        <element label="Rest Day" max_length="40" name="rest_day" type="boolean"/>
+        <element choice="1" label="State" max_length="40" name="state" type="choice">
+            <choice/>
+        </element>
+        <element display="true" label="Title" max_length="100" name="title" type="string"/>
+    </element>
+</database>

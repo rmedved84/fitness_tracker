@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_complex_object">
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FD7354b6c80aa23010428f5bc615ac354b</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>2d6c29fa2f123010c652de1a2799b631</scope_name>
+        <serialized_content>{"FlowDesigner:FD7354b6c80aa23010428f5bc615ac354b":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FD7354b6c80aa23010428f5bc615ac354b.$type_facets":{"SimpleMapFacet":"{\"sourceId\":\"\",\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"2b11928a-043d-42bf-a0d7-dd87f33d5512\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FD7354b6c80aa23010428f5bc615ac354b\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"sourceUiUniqueId\":\"\",\"sourceType\":\"\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>rmedved84@gmail.com</sys_created_by>
+        <sys_created_on>2021-09-07 19:16:56</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>3754b6c82fa23010c652de1a2799b64b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FD7354b6c80aa23010428f5bc615ac354b</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Fitness Tracker" source="x_271625_fitness">2d6c29fa2f123010c652de1a2799b631</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Fitness Tracker">2d6c29fa2f123010c652de1a2799b631</sys_scope>
+        <sys_update_name>sys_complex_object_3754b6c82fa23010c652de1a2799b64b</sys_update_name>
+        <sys_updated_by>rmedved84@gmail.com</sys_updated_by>
+        <sys_updated_on>2021-09-07 19:16:56</sys_updated_on>
+        <type>complex_object_schema</type>
+    </sys_complex_object>
+</record_update>

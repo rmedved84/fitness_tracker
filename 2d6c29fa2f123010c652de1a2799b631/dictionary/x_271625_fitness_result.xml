@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Result" max_length="40" name="x_271625_fitness_result" sizeclass="0" type="collection">
+        <element label="Comments" max_length="1000" name="comments" type="string"/>
+        <element label="Is PR" max_length="40" name="is_pr" type="boolean"/>
+        <element label="Movement" max_length="32" name="movement" reference="x_271625_fitness_movement" type="reference"/>
+        <element label="Reps" max_length="40" name="reps" type="integer"/>
+        <element label="Rounds" max_length="40" name="rounds" type="integer"/>
+        <element label="Time" max_length="40" name="time" type="glide_duration"/>
+        <element label="User" max_length="32" name="user" reference="sys_user" type="reference"/>
+        <element label="Weight (KG)" max_length="40" name="weight_kg" type="float"/>
+        <element label="Weight (LB)" max_length="40" name="weight_lb" type="float"/>
+        <element label="Workout Item" max_length="32" name="workout_item" reference="x_271625_fitness_workout_items" type="reference"/>
+        <index name="index">
+            <element name="workout_item"/>
+        </index>
+        <index name="index2">
+            <element name="movement"/>
+        </index>
+        <index name="index3">
+            <element name="user"/>
+        </index>
+    </element>
+</database>
